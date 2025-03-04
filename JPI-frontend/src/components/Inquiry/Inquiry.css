@@ -1,0 +1,107 @@
+.inquiry-wrapper {
+    padding: 30px 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.sec-ttl {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.sec-ttl::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    background-color: #01aef0;
+    margin: 5px auto 0;
+    border-radius: 5px;
+}
+
+/* Form Layout */
+.inquiry-form {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Width for side-by-side inputs */
+.half-width {
+    display: inline-block;
+    width: calc(50% - 10px);
+}
+
+.half-width:nth-child(odd) {
+    margin-right: 15px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Textarea */
+.form-control[placeholder="Description"] {
+    min-height: 100px;
+    resize: none;
+}
+
+/* Privacy Note */
+.privacy-note {
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Submit Button */
+.form-btn {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-submit {
+    background-color: #01aef0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #018dc8;
+}

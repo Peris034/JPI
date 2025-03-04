@@ -1,0 +1,17 @@
+.footer-wrapper {
+    background-color: #f8f9fa;
+    padding: 15px;
+    text-align: center;
+    border-top: 2px solid #ddd;
+}
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+.footer-text {
+    font-size: 14px;
+    color: #555;
+}

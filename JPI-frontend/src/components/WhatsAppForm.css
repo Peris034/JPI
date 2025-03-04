@@ -1,0 +1,120 @@
+.whatsapp-wrapper {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.sec-ttl {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.sub-ttl {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form Layout */
+.whatsapp-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 150px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Submit Button */
+.form-btn {
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Translate Box */
+.translate-box {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #555;
+}
+
+.translate-select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: #fff;
+}
+
+.powered-by {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.powered-by a {
+    text-decoration: none;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.powered-by img {
+    vertical-align: middle;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 576px) {
+    .whatsapp-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-btn {
+        justify-content: center;
+    }
+}
