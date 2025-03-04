@@ -18,4 +18,20 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/', async (req, res) => {
+    try {
+        res.status(200).send(`
+            <html>
+            <head><title>Inquiry API</title></head>
+            <body>
+                <h1>Welcome to the Inquiry API</h1>
+                <p>This is a backend response directly from the server.</p>
+            </body>
+            </html>
+        `);
+    } catch (err) {
+        res.status(500).send('Failed to load message');
+    }
+});
+
 export default router;
