@@ -7,7 +7,7 @@ const handleSubmit = async (event) => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    const response = await fetch('http://localhost:5000/api/inquiry', {
+    const response = await fetch('https://jpi-backend.onrender.com/api/inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
