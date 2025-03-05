@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import whatsappRoutes from './routes/whatsapp.js';
 import inquiryRoutes from './routes/inquiry.js';
+import adminRoutes from './routes/adminRoutes.js';
 
 dotenv.config();
 
@@ -30,7 +31,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use('/api', whatsappRoutes);
 app.use('/api/inquiry', inquiryRoutes);
-app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/admin', adminRoutes);
 
 app.listen(PORT, () => {
     console.log(`🚀 Server running at ${isRender ? 'https://jpi-backend.onrender.com' : `http://localhost:${PORT}`}`);

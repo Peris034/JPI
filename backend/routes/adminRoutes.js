@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getAllInquiries, addCertificate, getCertificates, deleteCertificate } = require('./controllers/adminController');
+import express from 'express';
+import { getAllInquiries, addCertificate, getCertificates, deleteCertificate } from './controllers/adminController.js';
 
 router.get('/inquiries', getAllInquiries);
 router.post('/certificates', addCertificate);

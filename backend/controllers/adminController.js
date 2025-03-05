@@ -1,5 +1,5 @@
-const UserInquiry = require('../models/UserInquiry');
-const Certificate = require('../models/Certificate');
+import UserInquiry from '../models/UserInquiry.js';
+import Certificate from '../models/Certificate.js';
 
 exports.getAllInquiries = async (req, res) => {
     const inquiries = await UserInquiry.find();

@@ -6,4 +6,5 @@ const userInquirySchema = new mongoose.Schema({
     collectedAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('UserInquiry', userInquirySchema);
+const UserInquiry = mongoose.model('UserInquiry', userInquirySchema);
+export default UserInquiry;
