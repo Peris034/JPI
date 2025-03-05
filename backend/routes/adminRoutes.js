@@ -7,8 +7,7 @@ import {
     getProducts, addProduct, updateProduct, deleteProduct,
     getPaymentOptions, updatePaymentOptions,
     getWhatsAppNumber, updateWhatsAppNumber
-} from '.adminController.js';
-
+} from '../Controllers/adminController.js';
 
 const router = express.Router();
 

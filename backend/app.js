@@ -11,8 +11,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// ✅ Define isRender
+const isRender = process.env.RENDER === 'true';
+
 const corsOptions = {
-    origin: process.env.RENDER === 'true' ? 'https://jayparivartanindia.netlify.app' : '*',
+    origin: isRender ? 'https://jayparivartanindia.netlify.app' : '*',
     credentials: true,
 };
 
