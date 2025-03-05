@@ -7,18 +7,23 @@ const handleSubmit = async (event) => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    const response = await fetch('https://jpi-backend.onrender.com/api/inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    });
+    try {
+        const response = await fetch('https://jpi-backend.onrender.com/api/inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
 
-    if (response.ok) {
-        alert('Thank you for your inquiry!');
-        event.target.reset();
-    } else {
-        const result = await response.json();
-        alert('Failed to submit inquiry: ' + result.error);
+        if (response.ok) {
+            alert('Thank you for your inquiry!');
+            event.target.reset();
+        } else {
+            const result = await response.json();
+            alert('Failed to submit inquiry: ' + (result.error || 'Unknown error'));
+        }
+    } catch (error) {
+        alert('Network error! Please check your connection or try again later.');
+        console.error('Error during inquiry submission:', error);
     }
 };
 
