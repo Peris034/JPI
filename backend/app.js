@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 const isRender = process.env.RENDER === 'true';
 
 // Define URLs
-const frontendURL = 'https://incomparable-marzipan-956d85.netlify.app';  // Your frontend URL
+const frontendURL = 'https://jayparivartanindia.netlify.app/';  // Your frontend URL
 const baseURL = isRender
     ? 'https://jpi-backend.onrender.com'
     : `http://localhost:${PORT}`;
