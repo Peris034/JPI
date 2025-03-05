@@ -12,7 +12,7 @@ router.post('/send-whatsapp-link', async (req, res) => {
     }
 
     const fullNumber = `${dialCode}${number}`;
-    const websiteUrl = "https://incomparable-marzipan-956d85.netlify.app/";
+    const websiteUrl = "https://jayparivartanindia.netlify.app/";
     const message = encodeURIComponent(`Hi!,
 Please click on the Link of SHAILESH BOGHARA  : ${websiteUrl}  
 Thank you!`);
