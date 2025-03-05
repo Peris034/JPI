@@ -2,8 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import whatsappRoutes from './routes/whatsapp.js';
-import inquiryRoutes from './routes/inquiry.js';
+import whatsappRoutes from './routes/whatsappRoutes.js';
+import inquiryRoutes from './routes/inquiryRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 
 dotenv.config();
@@ -11,25 +11,19 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const isRender = process.env.RENDER === 'true';
-const frontendURL = 'https://jayparivartanindia.netlify.app';
-
 const corsOptions = {
-    origin: isRender ? frontendURL : '*',
+    origin: process.env.RENDER === 'true' ? 'https://jayparivartanindia.netlify.app' : '*',
     credentials: true,
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('✅ MongoDB Connected'))
-.catch(err => console.error('❌ MongoDB Connection Error:', err));
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('✅ MongoDB Connected'))
+    .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
-app.use('/api', whatsappRoutes);
+app.use('/api/whatsapp', whatsappRoutes);
 app.use('/api/inquiry', inquiryRoutes);
 app.use('/api/admin', adminRoutes);
 
