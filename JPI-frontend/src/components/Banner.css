@@ -11,7 +11,7 @@
 .flip-card {
     width: 100%;
     max-width: 500px;
-    height: 320px;
+    height: 340px; /* Fixed height for front and back */
     perspective: 1000px;
     position: relative;
 }
@@ -19,7 +19,6 @@
 .flip-card-inner {
     width: 100%;
     height: 100%;
-    position: relative;
     transform-style: preserve-3d;
     transition: transform 1s ease;
 }
@@ -34,42 +33,49 @@
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    background-color: #111;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    color: #FFD700;
-    padding: 15px;
     box-sizing: border-box;
-    font-size: 14px;
-    line-height: 1.4;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background-color: #111; /* Black background */
+    color: #FFD700; /* Yellow text */
+    justify-content: flex-start;
+    padding: 15px;
 }
 
 .flip-card-back {
+    background-color: #111;
+    color: #FFD700;
     transform: rotateY(180deg);
     justify-content: flex-start;
+    padding: 15px;
 }
 
 .flip-logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
-    width: 100%;
+    width: 100%; /* Ensures it spans full width to allow centering */
+    margin-top: 10px; /* Optional: Add a little space at the top if needed */
 }
 
-.flip-logo img {
+/* Ensure image fits correctly */
+.flip-logo-img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     border: 3px solid #FFD700;
     border-radius: 50%;
+    background-color: #fff;
 }
 
+/* Info list on the front side - plain text style */
 .info-list {
     list-style: none;
     padding: 0;
@@ -79,27 +85,45 @@
 }
 
 .info-list li {
-    margin-bottom: 6px;
-    display: flex;
+    margin-bottom: 4px;
+    font-size: 13px;
+    line-height: 1.3;
+    display: inline-flex; /* Inline-flex to avoid unnecessary block space */
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    gap: 6px; /* Space between icon and text */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    background: none; /* Ensure no background */
+    border: none; /* Ensure no border */
+    padding: 0; /* Remove any padding */
+    color: #FFD700; /* Ensure text color is yellow */
+}
+
+.info-list a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 500;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.info-list a:hover {
+    text-decoration: underline;
 }
 
 .info-list i {
     color: #FFD700;
     font-size: 14px;
+    flex-shrink: 0;
+    background: none;
+    border: none;
 }
 
-a {
-    color: #FFD700;
-    text-decoration: none;
-}
 
+/* Back Header */
 .back-header {
     background-color: #FFD700;
     color: #111;
@@ -109,14 +133,15 @@ a {
     padding: 5px;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     border-radius: 10px 10px 0 0;
 }
 
+/* Services Grid on the Back */
 .service-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 5px 10px; /* Spacing between items */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 10px;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -126,15 +151,18 @@ a {
 .service-list li {
     font-size: 13px;
     text-align: left;
-    padding: 5px;
-    background-color: rgba(255, 215, 0, 0.1);
+    padding: 6px;
+    background-color: rgba(255, 215, 0, 0.15);
     border: 1px solid rgba(255, 215, 0, 0.5);
     border-radius: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: #FFD700;
 }
 
+.service-list li:hover {
+    background-color: rgba(255, 215, 0, 0.3);
+}
+
+/* Back Footer */
 .back-footer {
     background-color: #FFD700;
     color: #111;
@@ -146,4 +174,15 @@ a {
     border-radius: 0 0 10px 10px;
     width: 100%;
     box-sizing: border-box;
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+    .flip-card {
+        max-width: 95%;
+        height: 300px;
+    }
+    .info-list li, .service-list li {
+        font-size: 12px;
+    }
 }

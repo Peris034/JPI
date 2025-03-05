@@ -30,6 +30,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use('/api', whatsappRoutes);
 app.use('/api/inquiry', inquiryRoutes);
+app.use('/api/admin', require('./routes/adminRoutes'));
 
 app.listen(PORT, () => {
     console.log(`🚀 Server running at ${isRender ? 'https://jpi-backend.onrender.com' : `http://localhost:${PORT}`}`);

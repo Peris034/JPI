@@ -7,6 +7,7 @@ import Downloads from './components/Downloads/Downloads';
 import Payments from './components/Payments/Payments';
 import Inquiry from './components/Inquiry/Inquiry';
 import Contact from './components/Contact/Contact';
+import AdminDashboard from './components/AdminDashboard';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/payments" element={<Payments />} />
                 <Route path="/inquiry" element={<Inquiry />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
         </Router>
     );

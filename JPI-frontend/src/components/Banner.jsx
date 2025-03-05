@@ -26,21 +26,20 @@ function Banner() {
                                 <img 
                                     alt="logo" 
                                     src={logo} 
-                                    className="rounded-circle border border-gold" 
-                                    width="140" 
-                                    height="140" 
+                                    className="rounded-circle border border-gold flip-logo-img" 
                                 />
                             </div>
                             <ul className="info-list">
                                 <li>
                                     <strong>SHAILESH BOGHARA</strong>
                                 </li>
+                                <br/>
                                 <li>
                                     HUMAN RIGHT GOVERNMENT OF INDIA<br />
                                     GUJARAT STATE PRESIDENT
-                                </li>
-                                <li><i className="fa-solid fa-phone"></i> <a href="tel:+919998826273">+91 99988 26273</a></li>
-                                <li><i className="fa-solid fa-envelope"></i> <a href="mailto:shailesh.t.boghara@gmail.com">shailesh.t.boghara@gmail.com</a></li>
+                                </li><br/>
+                                <li><i className="fa-solid fa-phone"></i> <a href="tel:+919998826273">+91 99988 26273</a></li><br/>
+                                <li><i className="fa-solid fa-envelope"></i> <a href="mailto:shailesh.t.boghara@gmail.com">shailesh.t.boghara@gmail.com</a></li><br/>
                                 <li><i className="fa-solid fa-location-dot"></i> 1012, Palladium Mall, Surat, Gujarat</li>
                             </ul>
                         </div>
