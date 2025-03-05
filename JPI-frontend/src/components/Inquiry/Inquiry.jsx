@@ -8,7 +8,8 @@ const handleSubmit = async (event) => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-        const response = await fetch('https://jpi-backend.onrender.com/api/inquiry', {
+        const backendURL = process.env.REACT_APP_BACKEND_URL;
+        const response = await fetch(`${backendURL}/api/inquiry`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),

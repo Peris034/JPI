@@ -15,7 +15,8 @@ const WhatsAppForm = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('https://jpi-backend.onrender.com/api/send-whatsapp-link', formData);
+            const backendURL = process.env.REACT_APP_BACKEND_URL;
+            const response = await axios.post(`${backendURL}/api/send-whatsapp-link`, formData);
             if (response.data.success) {
                 window.open(response.data.whatsappLink, '_blank');
             } else {
