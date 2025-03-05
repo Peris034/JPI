@@ -32,22 +32,28 @@ const WhatsAppForm = () => {
 
     return (
         <section className="whatsapp-wrapper">
-            <h2 className="sec-ttl">Get Website URL in WhatsApp</h2>
-            <form className="whatsapp-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Country Code</label>
-                    <select name="dialCode" value={formData.dialCode} onChange={handleChange}>
-                        <option value="+91">(+91) India</option>
+            <div className="whatsapp-container">
+                <h2 className="whatsapp-heading">Get Website URL on WhatsApp</h2>
+                <form className="whatsapp-compact-form" onSubmit={handleSubmit}>
+                    <select name="dialCode" value={formData.dialCode} onChange={handleChange} className="form-select">
+                        <option value="+91">+91 🇮🇳</option>
                     </select>
-                </div>
-                <div className="form-group">
-                    <label>WhatsApp Number</label>
-                    <input type="number" name="number" placeholder="WhatsApp Number" value={formData.number} onChange={handleChange} maxLength="10" />
-                </div>
-                <div className="form-btn">
-                    <button type="submit" disabled={loading}>{loading ? 'Processing...' : 'Submit'}</button>
-                </div>
-            </form>
+
+                    <input
+                        type="number"
+                        name="number"
+                        placeholder="WhatsApp Number"
+                        value={formData.number}
+                        onChange={handleChange}
+                        className="form-control"
+                        maxLength="10"
+                    />
+
+                    <button type="submit" disabled={loading} className="btn-submit">
+                        {loading ? '...' : 'Send'}
+                    </button>
+                </form>
+            </div>
         </section>
     );
 };
