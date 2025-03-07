@@ -1,36 +1,39 @@
 import express from 'express';
-import { 
-    getAllInquiries, 
-    getCertificates, addCertificate, deleteCertificate,
-    getBanners, updateBanner,
-    getLogo, updateLogo,
-    getProducts, addProduct, updateProduct, deleteProduct,
-    getPaymentOptions, updatePaymentOptions,
-    getWhatsAppNumber, updateWhatsAppNumber
-} from '../Controllers/adminController.js';
+import { dashboard, loginAdmin } from '../controllers/adminController.js';
+import authMiddleware from '../middleware/authMiddleware.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import Admin from '../models/Admin.js'; // Make sure the path is correct
 
 const router = express.Router();
 
-router.get('/inquiries', getAllInquiries);
-router.get('/certificates', getCertificates);
-router.post('/certificates', addCertificate);
-router.delete('/certificates/:id', deleteCertificate);
+router.get('/dashboard', authMiddleware, dashboard);
 
-router.get('/banners', getBanners);
-router.put('/banners', updateBanner);
+// Admin Login Route
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
 
-router.get('/logo', getLogo);
-router.put('/logo', updateLogo);
+    try {
+        const admin = await Admin.findOne({ email });
 
-router.get('/products', getProducts);
-router.post('/products', addProduct);
-router.put('/products/:id', updateProduct);
-router.delete('/products/:id', deleteProduct);
+        if (!admin) {
+            return res.status(401).json({ success: false, message: 'Invalid credentials' });
+        }
 
-router.get('/payment-options', getPaymentOptions);
-router.put('/payment-options', updatePaymentOptions);
+        const isMatch = await bcrypt.compare(password, admin.password);
+        if (!isMatch) {
+            return res.status(401).json({ success: false, message: 'Invalid credentials' });
+        }
 
-router.get('/whatsapp-number', getWhatsAppNumber);
-router.put('/whatsapp-number', updateWhatsAppNumber);
+        const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        res.json({
+            success: true,
+            token
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
 
 export default router;

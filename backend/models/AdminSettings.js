@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-const adminSettingsSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
     logo: String,
-    paymentOptions: Array,
-    whatsappNumber: String,
+    paymentOptions: [String],
+    whatsappNumber: String
 });
 
-export default mongoose.model('AdminSettings', adminSettingsSchema);
+export default mongoose.model('AdminSettings', schema);

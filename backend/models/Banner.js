@@ -1,9 +1,5 @@
 import mongoose from 'mongoose';
-
-const bannerSchema = new mongoose.Schema({
-    imageUrl: String,
-    title: String,
-    description: String,
+const schema = new mongoose.Schema({
+    imageUrl: String
 });
-
-export default mongoose.model('Banner', bannerSchema);
+export default mongoose.model('Banner', schema);

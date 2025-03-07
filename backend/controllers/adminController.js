@@ -1,35 +1,28 @@
-import Inquiry from '../models/Inquiry.js';
-import Certificate from '../models/Certificate.js';
-import Banner from '../models/Banner.js';
-import Product from '../models/Product.js';
-import AdminSettings from '../models/AdminSettings.js';
+import Admin from '../models/Admin.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
-// Inquiries
-export const getAllInquiries = async (req, res) => res.json(await Inquiry.find());
+export const loginAdmin = async (req, res) => {
+    try {
+        const { email, password } = req.body;
 
-// Certificates
-export const getCertificates = async (req, res) => res.json(await Certificate.find());
-export const addCertificate = async (req, res) => res.json(await new Certificate(req.body).save());
-export const deleteCertificate = async (req, res) => res.json(await Certificate.findByIdAndDelete(req.params.id));
+        const admin = await Admin.findOne({ email });
+        if (!admin) {
+            return res.status(401).json({ success: false, message: 'Invalid credentials' });
+        }
 
-// Banners
-export const getBanners = async (req, res) => res.json(await Banner.find());
-export const updateBanner = async (req, res) => res.json(await Banner.findOneAndUpdate({}, req.body, { upsert: true, new: true }));
+        const isPasswordValid = await bcrypt.compare(password, admin.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ success: false, message: 'Invalid credentials' });
+        }
 
-// Logo
-export const getLogo = async (req, res) => res.json((await AdminSettings.findOne())?.logo);
-export const updateLogo = async (req, res) => res.json(await AdminSettings.findOneAndUpdate({}, { logo: req.body.logo }, { upsert: true, new: true }));
+        const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.json({ success: true, token });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+};
 
-// Products
-export const getProducts = async (req, res) => res.json(await Product.find());
-export const addProduct = async (req, res) => res.json(await new Product(req.body).save());
-export const updateProduct = async (req, res) => res.json(await Product.findByIdAndUpdate(req.params.id, req.body, { new: true }));
-export const deleteProduct = async (req, res) => res.json(await Product.findByIdAndDelete(req.params.id));
-
-// Payment Options
-export const getPaymentOptions = async (req, res) => res.json((await AdminSettings.findOne())?.paymentOptions);
-export const updatePaymentOptions = async (req, res) => res.json(await AdminSettings.findOneAndUpdate({}, { paymentOptions: req.body }, { upsert: true, new: true }));
-
-// WhatsApp Number
-export const getWhatsAppNumber = async (req, res) => res.json((await AdminSettings.findOne())?.whatsappNumber);
-export const updateWhatsAppNumber = async (req, res) => res.json(await AdminSettings.findOneAndUpdate({}, { whatsappNumber: req.body }, { upsert: true, new: true }));
+export const dashboard = (req, res) => {
+    res.json({ message: 'Admin Dashboard Accessed' });
+};
