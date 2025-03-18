@@ -1,11 +1,11 @@
 import React from 'react';
 import Banner from './Banner';
 // import Products from './Products/Products';
-import Certificates from './Certificates/Certificates';
-import Downloads from './Downloads/Downloads';
-import Payments from './Payments/Payments';
+// import Certificates from './Certificates/Certificates';
+// import Downloads from './Downloads/Downloads';
+// import Payments from './Payments/Payments';
 // import Inquiry from './Inquiry/Inquiry';
-import Contact from './Contact/Contact';
+// import Contact from './Contact/Contact';
 // import WhatsAppForm from './WhatsAppForm';
 
 const Home = () => {
@@ -14,11 +14,11 @@ const Home = () => {
             <div className="container-fluid">
                 <Banner />
                 {/* <Products /> */}
-                <Certificates />
-                <Downloads />
-                <Payments />
+                {/* <Certificates /> */}
+                {/* <Downloads /> */}
+                {/* <Payments /> */}
                 {/* <Inquiry /> */}
-                <Contact />
+                {/* <Contact /> */}
                 {/* <WhatsAppForm /> */}
             </div>
         </div>
