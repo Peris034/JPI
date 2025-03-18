@@ -23,7 +23,7 @@ function Header() {
             {/* Menu - Mobile & Desktop */}
             <div className={`header-menu ${isMenuOpen ? 'open' : ''}`}>
                 <ul className="nav">
-                    <li className="nav-item"><Link to="/" className="nav-link"><i className="fa-solid fa-house"></i> Home...</Link></li>
+                    <li className="nav-item"><Link to="/" className="nav-link"><i className="fa-solid fa-house"></i> Home.....</Link></li>
                     {/* <li className="nav-item"><Link to="/products" className="nav-link"><i className="fa-solid fa-house"></i> Products</Link></li> */}
                     {/* <li className="nav-item"><Link to="/certificates" className="nav-link"><i className="fa-solid fa-certificate"></i> Certificates</Link></li> */}
                     {/* <li className="nav-item"><Link to="/downloads" className="nav-link"><i className="fa-solid fa-download"></i> Downloads</Link></li> */}
