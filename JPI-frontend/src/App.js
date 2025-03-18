@@ -29,7 +29,7 @@ function App() {
     return (
         <Router>
             <div className="app-container">
-                <Header />
+                {/* <Header /> */}
                 <main className="main-content">
                     <Routes>
                         {/* Public Routes */}
